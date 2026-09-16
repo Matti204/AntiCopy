@@ -1,5 +1,6 @@
 import time
 import json
+import os
 from datetime import datetime
 import getpass
 import struct
@@ -9,10 +10,10 @@ import threading as th
 import psutil
 import win32gui
 import win32process
-#PRODUZIONE
-HOST = "31.14.140.197"
-#HOST = "127.0.0.1"
-PORT = 5000
+# Indirizzo LAN del PC su cui e in esecuzione server.py.
+# Puoi sovrascriverlo prima di avviare il client con ANTICOPY_SERVER_HOST.
+HOST = os.getenv("ANTICOPY_SERVER_HOST", "192.168.1.17")
+PORT = int(os.getenv("ANTICOPY_SERVER_PORT", "5000"))
 
 MAX_TENTATIVI = 3
 ATTESA_TENTATIVI = 5
